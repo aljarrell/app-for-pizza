@@ -20,8 +20,7 @@ post '/home' do
   else
     veggies = params[:veggies].join(", ")
   end
-  delivery = params[:delivery]
-  redirect 'confirm_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies + '&delivery=' + delivery
+  redirect 'confirm_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies
 end
 
 get '/confirm_order' do
@@ -31,5 +30,35 @@ get '/confirm_order' do
   meats = params[:meats]
   veggies = params[:veggies]
   delivery = params[:delivery]
-  erb :confirm_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery: delivery}
+  erb :confirm_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies}
+end
+
+post '/confirm_order' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  redirect 'delivery?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies
+end
+
+get '/delivery' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  delivery = params[:delivery]
+  erb :delivery, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery: delivery}
+end
+
+get '/final_order' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  delivery = params[:delivery]
+  address = params[:address]
+  erb :final_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery: delivery, address: address}
 end
