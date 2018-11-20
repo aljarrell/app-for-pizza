@@ -9,7 +9,11 @@ post '/home' do
   size = params[:size]
   crust = params[:crust]
   sauce = params[:sauce]
+  if params[:meats].include?("no meat")
+    meats = "no meat"
+  else
   meats = params[:meats].join(", ")
+  end
   redirect 'confirm_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats
 end
 
