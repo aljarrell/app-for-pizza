@@ -7,10 +7,12 @@ end
 
 post '/home' do
   size = params[:size]
-  redirect 'confirm_order?size=' + size
+  crust = params[:crust]
+  redirect 'confirm_order?size=' + size + '&crust=' + crust
 end
 
 get '/confirm_order' do
   size = params[:size]
-  erb :confirm_order, locals: {size: size}
+  crust = params[:crust]
+  erb :confirm_order, locals: {size: size, crust: crust}
 end
