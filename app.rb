@@ -6,6 +6,6 @@ get '/' do
 end
 
 post '/home' do
-
-
+  size = params[:size]
+  redirect 'confirm_order?size=' + size
 end
