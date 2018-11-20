@@ -7,11 +7,11 @@ def crust_type()
 end
 
 def meats()
-  topping = ["bacon", "sausage", "ham", "chicken", "anchovies", "no meat"]
+  meats = ["bacon", "sausage", "ham", "chicken", "anchovies", "no meat"]
 end
 
 def veggies()
-  cheese = ["onions", "peppers", "banana peppers", "tomatoes", "olives", "no veggies"]
+  veggies = ["onions", "peppers", "banana peppers", "tomatoes", "olives", "no veggies"]
 end
 
 def sauce()
