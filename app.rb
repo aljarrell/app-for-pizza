@@ -45,7 +45,7 @@ end
 
 post '/confirm_order' do
   pizza_ingredients = params[:pizza_ingredients]
-  redirect 'delivery?pizza_ingredients=' + pizza_ingredients
+  redirect '/delivery?pizza_ingredients=' + pizza_ingredients
 end
 
 get '/delivery' do

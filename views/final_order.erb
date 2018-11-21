@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/style.css">
 
 <h1>Final Order</h1>
-Pizza:<%= pizza_ingredients %><br>
-<%= address %>
+<h2>Pizza: <%= pizza_ingredients %><br>
+<% if address %>
+Address: <%= address %>
+<% end %></h2>
