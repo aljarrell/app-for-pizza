@@ -47,8 +47,7 @@ get '/delivery' do
   sauce = params[:sauce]
   meats = params[:meats]
   veggies = params[:veggies]
-  p "this is GET params #{params}"
-  #delivery_option = params[:delivery_option]
+  #p "this is GET params #{params}"
   erb :delivery, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies}
 end
 
@@ -59,7 +58,7 @@ post '/delivery' do
   meats = params[:meats]
   veggies = params[:veggies]
   delivery_option = params[:delivery_option]
-  p "this is POST params #{params}"
+  #p "this is POST params #{params}"
   if params[:delivery_option] == "take out"
     redirect '/final_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies + '&delivery_option=' + delivery_option
   else
@@ -77,12 +76,22 @@ get '/address' do
   erb :address, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery_option: delivery_option}
 end
 
+post '/address' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  address = params[:address]
+  redirect '/final_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies + '&address=' + address
+end
+
 get '/final_order' do
   size = params[:size]
   crust = params[:crust]
   sauce = params[:sauce]
   meats = params[:meats]
   veggies = params[:veggies]
-  delivery_option = params[:delivery_option]
-  erb :final_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery_option: delivery_option}
+  address = params[:address]
+  erb :final_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, address: address}
 end
