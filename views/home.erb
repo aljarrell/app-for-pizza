@@ -1,66 +1,52 @@
-<!DOCTYPE html>
-<html>
 
-<link rel="stylesheet" href="/style.css">
+<form method = 'post' action = '/home'><br>
 
-  <header>
-    <h1>Alan's Pizza Palace (work in progress)</h1>
-  </header>
+  <div class="select">
+    <h2>Select your size!</h2>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
+        <input type="radio" name="size" value="small" checked> Small<br>
+        <input type="radio" name="size" value="medium"> Medium<br>
+        <input type="radio" name="size" value="large"> Large<br>
+        <input type="radio" name="size" value="xlarge"> Extra-Large<br>
+  </div>
 
-    <body>
-      <form method = 'post' action = '/home'><br>
+  <div class="select">
+    <h2>Select your crust type!</h2>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
+      <input type="radio" name="crust" value="regular" checked> Regular<br>
+      <input type="radio" name="crust" value="thin"> Thin<br>
+      <input type="radio" name="crust" value="deep dish"> Deep Dish<br>
+  </div>
 
-        <div class="select">
-          <h2>Select your size!</h2>
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
-              <input type="radio" name="size" value="small" checked> Small<br>
-              <input type="radio" name="size" value="medium"> Medium<br>
-              <input type="radio" name="size" value="large"> Large<br>
-              <input type="radio" name="size" value="xlarge"> Extra-Large<br>
+  <div class="select">
+    <h2>Select your sauce!</h2>
+    <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
+      <input type="radio" name="sauce" value="marinara" checked> Marinara<br>
+      <input type="radio" name="sauce" value="white sauce"> White Sauce<br>
+      <input type="radio" name="sauce" value="barbecue sauce"> Barbecue Sauce<br>
+  </div>
 
-        </div>
+  <div class="select">
+    <h2>Select your meat(s)!</h2>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
+      <input type="checkbox" name="meats[]" value="bacon" checked> Bacon</input><br>
+        <input type="checkbox" name="meats[]" value="sausage"> Sausage</input><br>
+        <input type="checkbox" name="meats[]" value="ham"> Ham</input><br>
+        <input type="checkbox" name="meats[]" value="chicken"> Chicken</input><br>
+        <input type="checkbox" name="meats[]" value="anchovies"> Anchovies</input><br>
+  </div>
 
-        <div class="select">
-          <h2>Select your crust type!</h2>
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
-              <input type="radio" name="crust" value="regular" checked> Regular<br>
-              <input type="radio" name="crust" value="thin"> Thin<br>
-              <input type="radio" name="crust" value="deep dish"> Deep Dish<br>
-        </div>
+  <div class="select">
+    <h2>Select your veggie(s)!</h2>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
+        <input type="checkbox" name="veggies[]" value="onions" checked> Onions</input><br>
+        <input type="checkbox" name="veggies[]" value="peppers"> Peppers</input><br>
+        <input type="checkbox" name="veggies[]" value="banana peppers"> Banana Peppers</input><br>
+        <input type="checkbox" name="veggies[]" value="tomatoes"> Tomatoes</input><br>
+        <input type="checkbox" name="veggies[]" value="olives"> Olives</input><br>
+  </div>
 
-        <div class="select">
-          <h2>Select your sauce!</h2>
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
-              <input type="radio" name="sauce" value="marinara" checked> Marinara<br>
-              <input type="radio" name="sauce" value="white sauce"> White Sauce<br>
-              <input type="radio" name="sauce" value="barbecue sauce"> Barbecue Sauce<br>
-        </div>
+    <input type="submit" value="Submit Order"><br>
+    <input type = "button" value = "Restart Order" onClick = "location.href=location.href"?>
 
-        <div class="select">
-          <h2>Select your meat(s)!</h2>
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
-              <input type="checkbox" name="meats[]" value="bacon" checked> Bacon</input><br>
-              <input type="checkbox" name="meats[]" value="sausage"> Sausage</input><br>
-              <input type="checkbox" name="meats[]" value="ham"> Ham</input><br>
-              <input type="checkbox" name="meats[]" value="chicken"> Chicken</input><br>
-              <input type="checkbox" name="meats[]" value="anchovies"> Anchovies</input><br>
-        </div>
-
-        <div class="select">
-          <h2>Select your veggie(s)!</h2>
-            <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a><br>
-              <input type="checkbox" name="veggies[]" value="onions" checked> Onions</input><br>
-              <input type="checkbox" name="veggies[]" value="peppers"> Peppers</input><br>
-              <input type="checkbox" name="veggies[]" value="banana peppers"> Banana Peppers</input><br>
-              <input type="checkbox" name="veggies[]" value="tomatoes"> Tomatoes</input><br>
-              <input type="checkbox" name="veggies[]" value="olives"> Olives</input><br>
-        </div>
-
-        <input type="submit" value="Submit Order"><br>
-        <input type = "button" value = "Restart Order" onClick = "location.href=location.href"?>
-
-      </form>
-
-    </body>
-
-</html>
+</form>
