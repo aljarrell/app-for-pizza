@@ -2,13 +2,29 @@
 
 <h1>Your order is:</h1>
 
-<h2>
-<%= size %><br>
-<%= crust %><br>
-<%= sauce %><br>
-<%= meats %><br>
-<%= veggies %><br>
-</h2>
+<h2>Do you want to change any ingredients?</h2>
+
+<form action="/confirm_order" method="post">
+  <h3>
+  <%= size %><br>
+    <input type="radio" name="pizza_size" value="yes"> Yes
+    <input type="radio" name="pizza_size" value="no" checked> No<br>
+  <%= crust %><br>
+    <input type="radio" name="pizza_crust" value="yes"> Yes
+    <input type="radio" name="pizza_crust" value="no" checked> No<br>
+  <%= sauce %><br>
+    <input type="radio" name="pizza_sauce" value="yes"> Yes
+    <input type="radio" name="pizza_sauce" value="no" checked> No<br>
+  <%= meats %><br>
+    <input type="radio" name="pizza_meats" value="yes"> Yes
+    <input type="radio" name="pizza_meats" value="no" checked> No<br>
+  <%= veggies %><br>
+    <input type="radio" name="pizza_veggies" value="yes"> Yes
+    <input type="radio" name="pizza_veggies" value="no" checked> No<br>
+  </h3>
+</form>
+
+
 
   <form method="post" action="/confirm_order">
     <input type="hidden" name="size" value="<%= size %>">
