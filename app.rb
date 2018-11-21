@@ -29,7 +29,6 @@ get '/confirm_order' do
   sauce = params[:sauce]
   meats = params[:meats]
   veggies = params[:veggies]
-  delivery = params[:delivery]
   erb :confirm_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies}
 end
 
@@ -48,8 +47,34 @@ get '/delivery' do
   sauce = params[:sauce]
   meats = params[:meats]
   veggies = params[:veggies]
-  delivery = params[:delivery]
-  erb :delivery, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery: delivery}
+  p "this is GET params #{params}"
+  #delivery_option = params[:delivery_option]
+  erb :delivery, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies}
+end
+
+post '/delivery' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  delivery_option = params[:delivery_option]
+  p "this is POST params #{params}"
+  if params[:delivery_option] == "take out"
+    redirect '/final_order?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies + '&delivery_option=' + delivery_option
+  else
+    redirect '/address?size=' + size + '&crust=' + crust + '&sauce=' + sauce + '&meats=' + meats + '&veggies=' + veggies + '&delivery_option=' + delivery_option
+  end
+end
+
+get '/address' do
+  size = params[:size]
+  crust = params[:crust]
+  sauce = params[:sauce]
+  meats = params[:meats]
+  veggies = params[:veggies]
+  delivery_option = params[:delivery_option]
+  erb :address, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery_option: delivery_option}
 end
 
 get '/final_order' do
@@ -58,7 +83,6 @@ get '/final_order' do
   sauce = params[:sauce]
   meats = params[:meats]
   veggies = params[:veggies]
-  delivery = params[:delivery]
-  address = params[:address]
-  erb :final_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery: delivery, address: address}
+  delivery_option = params[:delivery_option]
+  erb :final_order, locals: {size: size, crust: crust, sauce: sauce, meats: meats, veggies: veggies, delivery_option: delivery_option}
 end

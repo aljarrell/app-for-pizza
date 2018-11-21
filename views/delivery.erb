@@ -1,5 +1,15 @@
+<link rel="stylesheet" href="/style.css">
+
 <div class="delivery">
   <h2>Is this for delivery or take-out?</h2>
-    <input type="radio" name="delivery" value="delivery" checked> Delivery<br>
-    <input type="radio" name="delivery" value="take out"> Take-Out<br>
+    <form method="post" action="/delivery">
+      <input type="hidden" name="size" value="<%= size %>">
+      <input type="hidden" name="crust" value="<%= crust %>">
+      <input type="hidden" name="sauce" value="<%= sauce %>">
+      <input type="hidden" name="meats" value="<%= meats %>">
+      <input type="hidden" name="veggies" value="<%= veggies %>">
+      <input type="radio" name="delivery_option" value="delivery" checked> Delivery<br>
+      <input type="radio" name="delivery_option" value="take out"> Take-Out<br>
+      <input type="submit" value="Submit">
+    </form>
 </div>
