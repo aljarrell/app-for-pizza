@@ -9,8 +9,12 @@ def price(items, arr)
       total += 6
     elsif ingredients == "xlarge"
       total += 8
+    elsif ingredients == "no meat"
+      total -= 1
+    elsif ingredients == "no veggies"
+      total -= 1
     end
   end
   total += items
-  return total 
+  return total
 end
