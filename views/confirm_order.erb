@@ -1,18 +1,20 @@
 
 
-<h1>Your order is: <%= pizza_ingredients.join(", ") %> </h1>
+<h1>Your order is: <%= pizza_ingredients %> </h1>
 
 
 <h2>Does this satisfy your taste buds?</h2>
 
-<form action="/confirm_order" method="post">
-  <input type = 'submit' name = 'yes' value = 'Yes' checked><br>
-  <input type="button" value="No" onclick="history.back()"><br><br>
-
-  <% pizza_ingredients.each do |item| %>
-        <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a>
-      <h3><%= item %></h3>
+<% pizza_ingredients.each do |item| %>
+  <% item.each do |x| %>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/80"></a>
+    <h3><%= x %></h3>
   <% end %>
+<% end %>
 
-    <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients.join(", ") %>">
+<form action="/confirm_order" method="post">
+    <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
+    <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients.join(",") %>">
+    <input type = "submit" name = "yes" value = "Yes" checked><br>
+    <input type="button" value="No" onclick="history.back()"><br><br>
 </form>
