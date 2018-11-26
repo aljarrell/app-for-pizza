@@ -15,7 +15,7 @@
 <form action="/confirm_order" method="post">
     <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
     <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients.join(",") %>">
-    <input type = "submit" name = "yes" value = "Yes" checked><br>
-    <input type="button" value="No" onclick="history.back()"><br><br>
-    <input type = "button" value = "Restart Order" onClick = "location.href='/'">
+    <input id="buttons" type = "submit" name = "yes" value = "Yes" checked><br><br>
+    <input id="buttons" type="button" value="No" onclick="history.back()"><br><br>
+    <input id="buttons" type = "button" value = "Restart Order" onClick = "location.href='/'">
 </form>

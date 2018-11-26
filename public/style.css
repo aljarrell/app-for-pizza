@@ -1,8 +1,39 @@
-html {
-  background-color: red;
+body {
+  background-image: url('/pics/giphy.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: white;
 }
 
-p {
-  font-size: 20px;
+h1 {
+  color: black;
+  font-size: 50px;
+}
+
+form > div {
+  text-align: center;
+}
+
+input {
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px;
   font-weight: bold;
+}
+
+#buttons{
+  border: none;
+  box-shadow: 0 8px black;
+}
+
+#buttons:hover {background-color: red}
+
+#buttons:active {
+  background-color: red;
+  box-shadow: 0 4px black;
+  transform: translateY(3px);
 }
