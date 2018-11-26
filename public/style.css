@@ -1,5 +1,5 @@
 body {
-  background-image: url('/pics/giphy.gif');
+  background-image: url('/pics/giphy_2.gif');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Raleway', sans-serif;
@@ -37,3 +37,7 @@ input {
   box-shadow: 0 4px black;
   transform: translateY(3px);
 }
+
+input[type="radio"] {transform: scale(2);}
+
+input[type="checkbox"] {transform: scale(2);}

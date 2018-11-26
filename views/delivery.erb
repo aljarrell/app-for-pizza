@@ -4,8 +4,8 @@
   <h2>Is this for delivery or take-out?</h2>
     <form method="post" action="/delivery">
       <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients %>">
-      <input type="radio" name="delivery_option" value="delivery" checked> Delivery<br>
-      <input type="radio" name="delivery_option" value="take out"> Take-Out<br>
+      <input type="radio" name="delivery_option" value="delivery" checked> Delivery<br><br>
+      <input type="radio" name="delivery_option" value="take out"> Take-Out<br><br>
       <input id="buttons" type="submit" value="Submit"><br><br>
       <input id="buttons" type = "button" value = "Restart Order" onClick = "location.href='/'">
     </form>
