@@ -1,6 +1,6 @@
 
 
-<h1>Your order is: <%= pizza_ingredients %> </h1>
+<h1>Your order is: <%= pizza_ingredients.join(", ") %> </h1>
 
 
 <h2>Does this satisfy your taste buds?</h2>
@@ -17,4 +17,5 @@
     <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients.join(",") %>">
     <input type = "submit" name = "yes" value = "Yes" checked><br>
     <input type="button" value="No" onclick="history.back()"><br><br>
+    <input type = "button" value = "Restart Order" onClick = "location.href='/'">
 </form>

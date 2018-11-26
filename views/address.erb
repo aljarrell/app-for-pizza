@@ -5,5 +5,6 @@
 <form method="post" action="/address">
   <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients %>">
   <input type="text" name="address" pattern="[a-zA-Z0-9\s]{3,}">
-  <input type="submit" value="Submit Address">
+  <input type="submit" value="Submit Address"><br><br>
+  <input type = "button" value = "Restart Order" onClick = "location.href='/'">
 </form>

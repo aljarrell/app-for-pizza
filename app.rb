@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'mypizza.rb'
+require_relative 'price.rb'
 
 get '/' do
   erb :home
@@ -67,7 +67,7 @@ end
 
 get '/delivery' do
   pizza_ingredients = params[:pizza_ingredients]
-  p "this is PIZZA ingredients #{pizza_ingredients}"
+  #p "this is PIZZA ingredients #{pizza_ingredients}"
   erb :delivery, locals: {pizza_ingredients: pizza_ingredients}
 end
 
@@ -97,5 +97,6 @@ end
 get '/final_order' do
   pizza_ingredients = params[:pizza_ingredients]
   address = params[:address]
-  erb :final_order, locals: {pizza_ingredients: pizza_ingredients, address: address}
+  total = price(pizza_ingredients.split(",").length, pizza_ingredients.split(","))
+  erb :final_order, locals: {pizza_ingredients: pizza_ingredients, address: address, total: total}
 end
