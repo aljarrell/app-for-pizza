@@ -1,5 +1,6 @@
 def price(items, arr)
   total = 0
+  address = 0
   arr.each do |ingredients|
     if ingredients == "small"
       total += 2
@@ -15,6 +16,6 @@ def price(items, arr)
       total -= 1
     end
   end
-  total += items
+  total += items += address
   return total
 end
