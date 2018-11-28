@@ -1,16 +1,18 @@
 
-
-<h1>Your order is: <%= pizza_ingredients.join(", ") %> </h1>
+<h1>Your order is:
+  <p>Pizza(s):</p>
+  <ul>
+ <% pizza_ingredients.each do |item| %>
+ <li>
+  <% item.each do |x| %>
+      <%= x %>
+  <% end %>
+ </li>
+<% end %>
+</ul></h1>
 
 
 <h2>Does this satisfy your taste buds?</h2>
-
-<% pizza_ingredients.each do |item| %>
-  <% item.each do |x| %>
-      <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-    <h3><%= x %></h3>
-  <% end %>
-<% end %>
 
 <form action="/confirm_order" method="post">
     <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">

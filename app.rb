@@ -60,8 +60,8 @@ end
 post '/confirm_order' do
   number_of_pizzas = params[:number_of_pizzas]
   pizza_ingredients = params[:pizza_ingredients]
-    p "this is PIZZA ingredients #{pizza_ingredients}"
-    p "this is NUMBER #{number_of_pizzas}"
+    #p "this is PIZZA ingredients #{pizza_ingredients}"
+    #p "this is NUMBER #{number_of_pizzas}"
   redirect '/delivery?pizza_ingredients=' + pizza_ingredients + '&number_of_pizzas=' + number_of_pizzas
 end
 

@@ -1,9 +1,16 @@
 
 <h1>Final Order</h1>
-<h2>Pizza: <%= pizza_ingredients %><br>
+Pizza:
+  <% pizza_ingredients.split(",").each do |item| %>
+      <% if item.include?("small") || item.include?("medium") || item.include?("large") || item.include?("xlarge") %>
+      <br><br>
+      <% end %>
+      <%= item %>
+    <% end %>
+
 <% if address %>
-Address: <%= address %><br>
+<br><br>Address: <%= address %><br>
 <% end %>
-Total: $<%= total %>.00</h2><br><br>
+<br><br>Total: $<%= total %>.00<br><br>
 
 <input id="buttons" type = "button" value = "Restart Order" onClick = "location.href='/'">
