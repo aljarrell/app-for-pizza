@@ -10,7 +10,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: black;
   margin: auto;
   padding: 0;
@@ -19,7 +19,7 @@ body {
 
 h1 {
   color: black;
-  font-size: 50px;
+  font-size: 3em;
 }
 
 input {

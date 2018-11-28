@@ -1,15 +1,19 @@
 
-<h1>Your order is:
-  <p>Pizza(s):</p>
-  <ul>
- <% pizza_ingredients.each do |item| %>
- <li>
-  <% item.each do |x| %>
-      <%= x %>
-  <% end %>
- </li>
+<h1>Your order is:</h1>
+
+<% if number_of_pizzas > 1 %>
+<%= number_of_pizzas %> Pizzas:
+<% else %>
+Pizza:
 <% end %>
-</ul></h1>
+  <% counter = 0 %>
+  <% pizza_ingredients.join(", ").split(", ").each do |item| %>
+        <% if item.include?("small")  %>
+        <% counter += 1 %>
+        <% break if counter == 2 %>
+        <% end %>
+        <%= item %>
+  <% end %>
 
 
 <h2>Does this satisfy your taste buds?</h2>
