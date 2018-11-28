@@ -10,6 +10,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   text-align: center;
+  font-size: 16px;
   color: white;
   margin: auto;
   padding: 0;
@@ -46,3 +47,12 @@ input {
 input[type="radio"] {transform: scale(2);}
 
 input[type="checkbox"] {transform: scale(2);}
+
+form > div > label > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10em;
+  width: 10em;
+  border-radius: 20%;
+}
