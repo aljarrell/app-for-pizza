@@ -8,7 +8,7 @@ Pizza:
 <% end %>
   <% counter = 0 %>
   <% pizza_ingredients.join(", ").split(", ").each do |item| %>
-        <% if item.include?("small")  %>
+        <% if item.include?("small") || item.include?("medium") || item.include?("large") || item.include?("xlarge")  %>
         <% counter += 1 %>
         <% break if counter == 2 %>
         <% end %>
