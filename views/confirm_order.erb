@@ -1,13 +1,12 @@
 
 <h1>Your order is:</h1>
-
 <% if number_of_pizzas > 1 %>
 <%= number_of_pizzas %> Pizzas:
 <% else %>
 Pizza:
 <% end %>
   <% counter = 0 %>
-  <% pizza_ingredients.join(", ").split(", ").each do |item| %>
+  <% pizza_list.split(",").each do |item| %>
         <% if item.include?("small") || item.include?("medium") || item.include?("large") || item.include?("xlarge")  %>
         <% counter += 1 %>
         <% break if counter == 2 %>
@@ -20,7 +19,7 @@ Pizza:
 
 <form action="/confirm_order" method="post">
     <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
-    <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients.join(",") %>">
+    <input type="hidden" name="pizza_list" value="<%= pizza_list %>">
     <input id="buttons" type = "submit" name = "yes" value = "Yes" checked><br><br>
     <input id="buttons" type="button" value="No" onclick="history.back()"><br><br>
     <input id="buttons" type = "button" value = "Restart Order" onClick = "location.href='/'"><br><br>

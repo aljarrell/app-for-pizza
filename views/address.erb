@@ -1,7 +1,7 @@
 <h1>What is your address?</h1>
 
 <form method="post" action="/address">
-  <input type="hidden" name="pizza_ingredients" value="<%= pizza_ingredients %>">
+  <input type="hidden" name="pizza_list" value="<%= pizza_list %>">
   <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
   <input type="text" name="address" pattern="[a-zA-Z0-9\s]{3,20}">
   <input id="buttons" type="submit" value="Submit Address"><br><br><br>
