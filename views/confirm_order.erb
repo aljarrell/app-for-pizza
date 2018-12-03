@@ -1,17 +1,20 @@
 
 <h1>Your order is:</h1>
+
 <% if number_of_pizzas > 1 %>
 <%= number_of_pizzas %> Pizzas:
 <% else %>
-Pizza:
+Pizza
 <% end %>
   <% counter = 0 %>
   <% pizza_list.split(",").each do |item| %>
-        <% if item.include?("small") || item.include?("medium") || item.include?("large") || item.include?("xlarge")  %>
+        <% if item == "small" || item == "medium" || item == "large" || item == "xlarge"  %>
         <% counter += 1 %>
-        <% break if counter == 2 %>
+        <br>
+        <%= counter.to_s.concat(": ") %>
+        <br>
         <% end %>
-        <%= item %>
+        <%= item.concat(" ") %>
   <% end %>
 
 
