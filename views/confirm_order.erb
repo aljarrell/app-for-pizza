@@ -1,26 +1,45 @@
 
 <h1>Your order is:</h1>
 
-<% if number_of_pizzas > 1 %>
-<%= number_of_pizzas %> Pizzas:
-<% else %>
-Pizza
-<% end %>
-  <% counter = 0 %>
-  <% pizza_list.split(",").each do |item| %>
-        <% if item == "small" || item == "medium" || item == "large" || item == "xlarge"  %>
-        <% counter += 1 %>
-        <br>
-        <%= counter.to_s.concat(": ") %>
-        <br>
-        <% end %>
-        <%= item.concat(" ") %>
-  <% end %>
+Pizza(s)<br>
 
+<% ary = [] %>
+<% ary2 = [] %>
+<% x = 0 %>
+<% pizza_counter = 1 %>
+<% new_pizza = pizza_list.split(",") %>
+<% if new_pizza[0] == "" %>
+  <% new_pizza.delete_at(0) %>
+<% end %>
+<% new_pizza.each_with_index do |item, i| %>
+  <% ((ary = []) && (pizza_counter += 1)) if ary2[x] == ary %>
+  <% if (item == " small" || item == " medium" || item == " large" || item == " xlarge") && (ary != []) && (ary2[x] != ary) %>
+      <% ary.insert(0, pizza_counter.to_s + " pizzas with") %>
+      <% ary2[x] = ary %>
+      <% ary = [] %>
+      <% x += 1 %>
+      <% pizza_counter = 1 %>
+      <% ary << item %>
+  <% else %>
+      <% ary << item %>
+  <% end %>
+    <% ary.insert(0, pizza_counter.to_s + " pizza(s) with") if (item == new_pizza.last) && (ary2[x] != ary) %>
+      <% ary2[x] = ary if item == (new_pizza.last) && (ary2[x] != ary) %>
+<% end %>
+<% ary2.each do |pizzas| %>
+  <ul>
+    <% pizzas.each do |ingredient| %>
+    <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% new_pizza = new_pizza.join(",") %>
 
 <h2>Does this satisfy your taste buds?</h2>
 
 <form action="/confirm_order" method="post">
+    <input type="hidden" name="new_pizza" value="<%= new_pizza %>">
     <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
     <input type="hidden" name="pizza_list" value="<%= pizza_list %>">
     <input id="buttons" type = "submit" name = "yes" value = "Yes" checked><br><br>

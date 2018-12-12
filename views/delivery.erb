@@ -2,6 +2,7 @@
 
 <div class="delivery">
     <form method="post" action="/delivery">
+      <input type="hidden" name="new_pizza" value="<%= new_pizza %>">
       <input type="hidden" name="number_of_pizzas" value="<%= number_of_pizzas %>">
       <input type="hidden" name="pizza_list" value="<%= pizza_list %>">
       <input type="radio" name="delivery_option" value="delivery" checked> Delivery<br><br>

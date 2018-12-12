@@ -24,69 +24,79 @@ post '/home' do
       veggies = "no veggies"
     end
     pizza_list = Array.new if params[:pizza_list] == ""
+    #p "this is PIZZA LIST #{pizza_list}"
     temp_arr = Array.new
     temp_arr.push(size, crust, sauce, meats, veggies)
     number_of_pizzas.to_i.times do
       pizza_list.push(temp_arr)
     end
+
     pizza_list = pizza_list.join(",")
+
     redirect 'confirm_order?pizza_list=' + pizza_list + '&number_of_pizzas=' + number_of_pizzas
 end
 
 get '/confirm_order' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas].to_i
   pizza_list = params[:pizza_list]
-  p "this is PIZZA ingredients #{pizza_list}"
-  erb :confirm_order, locals: {pizza_list: pizza_list, number_of_pizzas: number_of_pizzas}
+  p "this is PIZZA LIST #{pizza_list}"
+  erb :confirm_order, locals: {pizza_list: pizza_list, number_of_pizzas: number_of_pizzas, new_pizza: new_pizza}
 end
 
 post '/confirm_order' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas].to_s
   pizza_list = params[:pizza_list]
     #p "this is PIZZA ingredients #{pizza_list}"
     #p "this is NUMBER #{number_of_pizzas}"
-  redirect '/delivery?pizza_list=' + pizza_list + '&number_of_pizzas=' + number_of_pizzas
+  redirect '/delivery?pizza_list=' + pizza_list + '&number_of_pizzas=' + number_of_pizzas + '&new_pizza=' + new_pizza
 end
 
 get '/delivery' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas]
   pizza_list = params[:pizza_list]
   #p "this is PIZZA ingredients #{pizza_ingredients}"
-  erb :delivery, locals: {pizza_list: pizza_list, number_of_pizzas: number_of_pizzas}
+  erb :delivery, locals: {pizza_list: pizza_list, number_of_pizzas: number_of_pizzas, new_pizza: new_pizza}
 end
 
 post '/delivery' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas]
   pizza_list = params[:pizza_list]
   delivery_option = params[:delivery_option]
   #p "this is POST params #{params}"
   if params[:delivery_option] == "take out"
-    redirect '/final_order?pizza_list=' + pizza_list + '&delivery_option=' + delivery_option + '&number_of_pizzas=' + number_of_pizzas
+    redirect '/final_order?pizza_list=' + pizza_list + '&delivery_option=' + delivery_option + '&number_of_pizzas=' + number_of_pizzas + '&new_pizza=' + new_pizza
   elsif params[:delivery_option] == "delivery"
-    redirect '/address?pizza_list=' + pizza_list + '&delivery_option=' + delivery_option + '&number_of_pizzas=' + number_of_pizzas
+    redirect '/address?pizza_list=' + pizza_list + '&delivery_option=' + delivery_option + '&number_of_pizzas=' + number_of_pizzas + '&new_pizza=' + new_pizza
   elsif params[:delivery_option] == "add pizza"
     redirect '/?pizza_list=' + pizza_list
   end
 end
 
 get '/address' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas]
   pizza_list = params[:pizza_list]
   delivery_option = params[:delivery_option]
-  erb :address, locals: {pizza_list: pizza_list, delivery_option: delivery_option, number_of_pizzas: number_of_pizzas}
+  erb :address, locals: {pizza_list: pizza_list, delivery_option: delivery_option, number_of_pizzas: number_of_pizzas, new_pizza: new_pizza}
 end
 
 post '/address' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas]
   pizza_list = params[:pizza_list]
   address = params[:address]
-  redirect '/final_order?pizza_list=' + pizza_list + '&address=' + address + '&number_of_pizzas=' + number_of_pizzas
+  redirect '/final_order?pizza_list=' + pizza_list + '&address=' + address + '&number_of_pizzas=' + number_of_pizzas + '&new_pizza=' + new_pizza
 end
 
 get '/final_order' do
+  new_pizza = params[:new_pizza]
   number_of_pizzas = params[:number_of_pizzas].to_i
   pizza_list = params[:pizza_list]
   address = params[:address]
   total = price(pizza_list.split(",").length, pizza_list.split(","))
-  erb :final_order, locals: {pizza_list: pizza_list, address: address, total: total, number_of_pizzas: number_of_pizzas}
+  erb :final_order, locals: {pizza_list: pizza_list, address: address, total: total, number_of_pizzas: number_of_pizzas, new_pizza: new_pizza}
 end
